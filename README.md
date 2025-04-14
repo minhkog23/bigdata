@@ -3,6 +3,7 @@ coinswarmnet \
 sudo docker network create --scope=swarm --attachable -d overlay --opt encrypted coinswarmnet \
 loggingnet \
 sudo docker network create --scope=swarm --attachable -d overlay loggingnet \
+monitornet \
 sudo docker network create --scope=swarm --attachable -d overlay monitornet
 
 - Chạy docker stack \
