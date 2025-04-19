@@ -1,0 +1,20 @@
+version: "3.8"
+
+services:
+  telegraf:
+    image: telegraf:latest
+    configs:
+      - source: telegraf_config
+        target: /etc/telegraf/telegraf.conf
+    networks:
+      - monitornet
+    deploy:
+      replicas: 1
+
+configs:
+  telegraf_config:
+    file: ./telegraf.conf
+
+networks:
+  monitornet:
+    external: true

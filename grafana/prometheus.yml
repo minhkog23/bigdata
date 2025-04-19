@@ -1,0 +1,13 @@
+global:
+  scrape_interval: 15s  # Tần suất thu thập dữ liệu từ node_exporter
+
+scrape_configs:
+  - job_name: 'node_exporter'
+    dns_sd_configs:
+      - names:
+          - 'tasks.node_exporter' # Phát hiện tất cả các container node_exporter trong Swarm
+        type: A
+        port: 9100 # Cổng mà node_exporter lắng nghe
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
