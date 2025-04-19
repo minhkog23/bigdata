@@ -33,8 +33,6 @@ services:
     command: -e "input { gelf { host => '0.0.0.0' port => 12201 } } output { elasticsearch { hosts => ['elasticsearch'] index => 'logstash-%{+YYYY-MM-dd}'}>    networks:
       - loggingnet
       - coinswarmnet
-    volumes:
-      - logstash_config:/usr/share/logstash/pipeline/
     depends_on:
       - elasticsearch
 
@@ -61,6 +59,4 @@ networks:
 
 volumes:
   elasticsearch_data:
-    driver: local
-  logstash_config:
     driver: local
