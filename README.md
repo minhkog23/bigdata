@@ -14,4 +14,4 @@ sudo docker stack deploy -c mrnam.yml mrnam
 sudo docker service update --force elk_elasticsearch 
 
 - lệnh xóa toàn bộ \
-sudo docker system prune -a --volumes \
+sudo docker system prune -a --volumes 
