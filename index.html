@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard Hệ thống Coinswarm</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      padding: 40px;
+      line-height: 1.6;
+    }
+    h1 {
+      color: #333;
+    }
+    .link-group {
+      background: #fff;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    a {
+      display: inline-block;
+      margin: 10px 0;
+      font-weight: bold;
+      text-decoration: none;
+      color: #0066cc;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    code {
+      background: #eee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🌐 Dashboard Kiểm thử Hệ thống Coinswarm</h1>
+
+  <div class="link-group">
+    <h2>📊 Giao diện Giám sát Log (ELK Stack)</h2>
+    <a href="http://192.168.60.101:5601" target="_blank">Kibana - Trực quan hóa log (5601)</a><br>
+    <a href="http://192.168.60.101:9200" target="_blank">Elasticsearch - API/Health check (9200)</a>
+  </div>
+
+  <div class="link-group">
+    <h2>🧩 Dịch vụ Microservices</h2>
+    <a href="http://192.168.60.101:8000" target="_blank">WebUI - Giao diện người dùng (8000)</a><br>
+    <a href="http://192.168.60.101:8001" target="_blank">RNG - Random Number Generator (8001)</a><br>
+    <a href="http://192.168.60.101:8002" target="_blank">Hasher - Băm dữ liệu (8002)</a>
+  </div>
+
+  <div class="link-group">
+    <h2>📈 Hệ thống Giám sát Hiệu năng (Prometheus & Grafana)</h2>
+    <a href="http://192.168.60.101:3000" target="_blank">Grafana - Giao diện giám sát (3000)</a><br>
+    <a href="http://192.168.60.101:9090" target="_blank">Prometheus - Truy vấn metrics (9090)</a><br>
+    <a href="http://192.168.60.101:8086" target="_blank">InfluxDB - Cơ sở dữ liệu metrics (8086)</a><br>
+    <a href="http://192.168.60.101:9100" target="_blank">Node Exporter - Metrics máy chủ (9100)</a>
+  </div>
+
+  <div class="link-group">
+    <h2>📦 Các cổng dịch vụ ngầm</h2>
+    <p><strong>Redis:</strong> Cổng mặc định (6379), không có giao diện web.</p>
+    <p><strong>Logstash GELF Input:</strong> Đang lắng nghe tại <code>udp://192.168.60.101:12201</code></p>
+  </div>
+
+</body>
+</html>
