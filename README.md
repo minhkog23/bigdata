@@ -8,10 +8,10 @@ sudo docker network create --scope=swarm --attachable -d overlay monitornet
 
 - Chạy docker stack \
 sudo docker stack deploy -c elk.yml elk \
-sudo docker stack deploy -c mrnam.yml mrnam \
+sudo docker stack deploy -c mrnam.yml mrnam 
 
 - lệnh khởi động lại dịch vụ \
-sudo docker service update --force elk_elasticsearch \
+sudo docker service update --force elk_elasticsearch 
 
 - lệnh xóa toàn bộ \
 sudo docker system prune -a --volumes \
