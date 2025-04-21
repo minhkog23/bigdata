@@ -16,7 +16,15 @@ sudo docker service update --force elk_elasticsearch
 - lệnh xóa toàn bộ \
 sudo docker system prune -a --volumes
 
+- Thao tác trên các máy worker
 - cài đặt docker-compose \
 sudo apt install docker-compose -y
 - chạy yml ngầm \
 sudo docker-compose -f node_exporter.yml up -d
+
+-# Dừng và xóa tất cả các container được tạo bởi docker-compose up\
+sudo docker-compose -f docker-compose.yml down
+
+= # Xóa tất cả các image không sử dụng để giải phóng dung lượng\
+sudo docker image prune -a
+
