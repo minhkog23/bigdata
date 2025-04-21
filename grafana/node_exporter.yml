@@ -1,27 +1,18 @@
 version: '3.8'
 
 services:
-  # Node Exporter: Thu thập metrics hệ thống từ tất cả các node
+# Node Exporter: Thu thập metrics hệ thống từ tất cả các node
   node_exporter:
     image: prom/node-exporter:latest
+    container_name: node_exporter
+    restart: always
     ports:
-      - "9100:9100"  # Cổng mà Prometheus sẽ scrape các metrics từ node_exporter
-    environment:
-      - NODE_ID={{.Node.ID}}  # Biến môi trường cho ID của node trong Docker Swarm
+      - "9100:9100"
     volumes:
-      - /proc:/host/proc:ro  # Mount /proc để thu thập metrics hệ thống
-      - /sys:/host/sys:ro  # Mount /sys để thu thập thông tin về hệ thống
-      - /:/rootfs:ro  # Mount root filesystem để thu thập thông tin I/O đĩa
-      - /etc/hostname:/etc/nodename  # Mount /etc/hostname để xác định tên node
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /:/rootfs:ro
     command:
       - '--path.procfs=/host/proc'
       - '--path.sysfs=/host/sys'
       - '--path.rootfs=/rootfs'
-    deploy:
-      mode: global  # Chạy trên tất cả các worker nodes trong Docker Swarm
-    networks:
-      - monitornet  # Mạng overlay để giao tiếp giữa các container trong Swarm
-
-networks:
-  monitornet:
-    external: true  # Mạng được tạo sẵn ngoài docker-compose (overlay network)
