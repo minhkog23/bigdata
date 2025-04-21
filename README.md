@@ -16,5 +16,5 @@ sudo docker service update --force elk_elasticsearch
 - lệnh xóa toàn bộ \
 sudo docker system prune -a --volumes
 
-- chạy yml ngầm
+- chạy yml ngầm \
 sudo docker-compose -f node_exporter.yml up -d
