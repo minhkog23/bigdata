@@ -30,7 +30,8 @@ services:
       - "12201:12201/udp"
     environment:
       - LS_JAVA_OPTS=-Xms512m -Xmx512m
-    command: -e "input { gelf { host => '0.0.0.0' port => 12201 } } output { elasticsearch { hosts => ['elasticsearch'] index => 'logstash-%{+YYYY-MM-dd}'}>    networks:
+    command: -e "input { gelf { host => '0.0.0.0' port => 12201 } } output { elasticsearch { hosts => ['elasticsearch'] index => 'logstash-%{+YYYY-MM-dd}'} stdout {} }">    
+    networks:
       - loggingnet
       - coinswarmnet
     depends_on:
